@@ -22,7 +22,7 @@ const Banner = () => {
       },
     }}
     modules={[Navigation, Pagination, Scrollbar, A11y,EffectCreative]}
-    className="mySwiper"
+    className="mySwiper mb-4"
     spaceBetween={50}
     slidesPerView={1}
     navigation

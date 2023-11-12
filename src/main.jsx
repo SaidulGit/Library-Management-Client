@@ -5,22 +5,34 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './Page/Home';
 import Error from './Page/Error';
+import Context from './AuthProvider/Context';
+import SignUp from './Page/SignUp';
+import Main from './Compoents/Main';
+import Home from './Page/Home';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Home></Home>,
+    element:<Main></Main>,
     errorElement:<Error></Error>,
     children:[{
-
-    }]
+      path: "/signUp",
+      element: <SignUp></SignUp>
+  },
+  {
+    path: '/',
+    element: <Home></Home>
+  }
+]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-       <RouterProvider router={router} />
+      <Context>
+      <RouterProvider router={router} />
+      </Context>
   </React.StrictMode>,
 )

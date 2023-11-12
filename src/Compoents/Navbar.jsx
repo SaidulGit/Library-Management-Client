@@ -49,7 +49,7 @@ const Navbar = () => {
        <img className="w-auto h-20" src={logo}alt="" />
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul>
+        <ul className="space-x-4">
           {/* <li><Link to='/'>Home</Link></li> */}
           <NavLink
             to="/"
@@ -59,10 +59,18 @@ const Navbar = () => {
           >
             Home
           </NavLink>
+          <NavLink
+            to="/signUp"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-base font-bold text-orange-500" : ""
+            }
+          >
+           Registation
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+   <NavLink className='btn btn-success' to='/Login'>Login</NavLink>
       </div>
     </div>
   );
