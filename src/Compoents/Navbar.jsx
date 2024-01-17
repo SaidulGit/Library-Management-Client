@@ -60,6 +60,30 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink
+            to="/allbooks"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-base font-bold text-orange-500" : ""
+            }
+          >
+           All Books
+          </NavLink>
+          <NavLink
+            to="/borrowbooks"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-base font-bold text-orange-500" : ""
+            }
+          >
+           Borrow Books
+          </NavLink>
+          <NavLink
+            to="/addbooks"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-base font-bold text-orange-500" : ""
+            }
+          >
+           Add Books
+          </NavLink>
+          <NavLink
             to="/signUp"
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "text-base font-bold text-orange-500" : ""
@@ -70,7 +94,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-   <NavLink className='btn btn-success' to='/Login'>Login</NavLink>
+      <button><NavLink to="/signin">Login</NavLink></button>
       </div>
     </div>
   );

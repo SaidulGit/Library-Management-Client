@@ -10,6 +10,11 @@ import Context from './AuthProvider/Context';
 import SignUp from './Page/SignUp';
 import Main from './Compoents/Main';
 import Home from './Page/Home';
+import BooksAll from './Books/BooksAll';
+import BorrowBooks from './Books/BorrowBooks';
+import AddBooks from './Books/AddBooks';
+import Brand from './Books/Brand';
+import Login from './Compoents/Login';
 
 
 const router = createBrowserRouter([
@@ -24,6 +29,27 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Home></Home>
+  },
+  {
+    path: "/",
+    loader :() => fetch("http://localhost:5000/brand"),
+    element: <Brand></Brand>
+  },
+  {
+    path: "/allbooks",
+    element:<BooksAll></BooksAll>
+  },
+  {
+    path:"/borrowbooks",
+    element: <BorrowBooks></BorrowBooks>
+  },
+  {
+    path:"/addbooks",
+    element: <AddBooks></AddBooks>
+  },
+  {
+    path :"/signin",
+    element : <Login></Login>
   }
 ]
   },
