@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm,} from "react-hook-form"
+import { AuthContext } from '../AuthProvider/Context'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Login = () => {
+  const {signIn } = useContext(AuthContext)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -10,6 +17,28 @@ const Login = () => {
   
   const onSubmit = (data) => {
     console.log(data.email)
+    signIn(data.email,data.password)
+    .then(res => res.user)
+    .catch(error => console.error(error))
+    Swal.fire({
+      title: "SussessFul Login",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `
+      }
+    });
+    navigate(from, { replace: true })
+
   }
   return (
     <div>
@@ -39,6 +68,7 @@ const Login = () => {
         <div className="form-control mt-6">
           <button type='submit' className="btn btn-primary">Login</button>
         </div>
+        <h2>Don't have an account?<Link to="/signUp"><p className='text-blue-600 font-bold inline ml-2'>Register</p></Link></h2>
       </form>
     </div>
   </div>

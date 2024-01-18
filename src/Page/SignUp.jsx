@@ -1,16 +1,34 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
+import { AuthContext } from '../AuthProvider/Context'
+import Swal from 'sweetalert2'
 
 const SignUp = () => {
-
+const {createUser} = useContext(AuthContext)
+const navigate = useNavigate()
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => {
+    console.log(data)
+    createUser(data.email, data.password)
+    .then(res => res.user)
+    .catch(erroe => console.error(erroe))
+    navigate("/")
+    Swal.fire({
+      position: "top-start",
+      icon: "success",
+      title: "Registation Success",
+      showConfirmButton: false,
+      timer: 1500
+    })
+    reset();
+  }
 // const handleSignUp = event => {
 //     event.preventDefault();
 //     const form = event.target;

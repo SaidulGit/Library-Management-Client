@@ -15,6 +15,7 @@ import BorrowBooks from './Books/BorrowBooks';
 import AddBooks from './Books/AddBooks';
 import Brand from './Books/Brand';
 import Login from './Compoents/Login';
+import CategoryBooks from './Books/CategoryBooks';
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
   {
     path :"/signin",
     element : <Login></Login>
+  },
+  {
+    path:"/category/:category",
+    loader: ({params}) => fetch(`http://localhost:5000/books/${params.category}`),
+    element: <CategoryBooks></CategoryBooks>
   }
 ]
   },
