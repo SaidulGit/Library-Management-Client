@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import {
     Card,
@@ -7,11 +7,49 @@ import {
     CardFooter,
     Typography,
   } from "@material-tailwind/react";
+import Swal from 'sweetalert2';
+import { AuthContext } from '../AuthProvider/Context';
 
 const Details = () => {
-    const loader = useLoaderData();
-    console.log(loader[0])
+  const {user} = useContext(AuthContext)
+  const loader = useLoaderData();
+    const email = user.email
+    const name1 = loader[0].name
    const {name,author,description,rating,quantity,image} = loader[0] || {}
+
+   const handleBorrow = async () => {
+    const { value: date } = await Swal.fire({
+      title: "Select return date",
+      input: "date",
+      confirmButtonText: "Submit",
+      didOpen: () => {
+        const today = (new Date()).toISOString();
+        Swal.getInput().min = today.split("T")[0];
+      }
+    });
+    if (date) {
+      Swal.fire("Return date", date);
+    }
+  const borrow = {email,name1,date}
+    fetch("http://localhost:5000/borrow",{
+      method:"POST",
+      headers: {
+        "content-type" : "application/json"
+      },
+      body: JSON.stringify(borrow)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Borrow confirm",
+      showConfirmButton: false,
+      timer: 1500
+    });
+   }
+
   return (
     <div>
     <Card className="w-full mt-20 max-w-[1200px] mx-auto ">
@@ -62,7 +100,7 @@ const Details = () => {
       </CardBody>
       <CardFooter className="pt-3">
         <div className='flex justify-center gap-5 m-10 hover:bg-slate-200 '>
-            <button className='btn bg-green-500 text-center font-medium'>Borrow</button>
+            <button id='borrowbtn' onClick={handleBorrow} className='btn bg-green-500 text-center font-medium'>Borrow</button>
             <button className='btn bg-yellow-400 text-center font-medium'>Read</button>
         </div>
       </CardFooter>

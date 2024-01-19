@@ -42,13 +42,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/borrowbooks",
+        loader: () => fetch("http://localhost:5000/borrowdata"),
         element: <BorrowBooks></BorrowBooks>,
       },
       {
         path: "/update/:id",
         loader: () =>
           fetch(`http://localhost:5000/allbooks`),
-        element: <Updatebook></Updatebook>,
+        element: <Privateroute><Updatebook></Updatebook></Privateroute>
       },
       {
         path: "/addbooks",
