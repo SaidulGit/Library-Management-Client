@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const BookCard = ({card}) => {
     
@@ -16,7 +17,7 @@ const BookCard = ({card}) => {
       <div className="badge badge-outline">{card.category}</div> 
     </div>
   </div>
-  <button className='btn bg-purple-200 font-bold text-yellow-600'>Update</button>
+<Link to={`/update/${card._id}`}>  <button className='btn bg-purple-200 w-full font-bold text-yellow-600'>Update</button></Link>
 </div>
     </div>
   )

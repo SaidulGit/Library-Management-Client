@@ -79,7 +79,7 @@ const navigate = useNavigate()
         </div>
         <div className="form-control mt-6">
           <input className="btn btn-success" type="submit" value="Sign Up" />
-          <p className='mt-2 text-center'>Allready have an account?<NavLink className='text-base font-bold text-sky-500' to='/signin'>Login</NavLink> </p>
+          <p className='mt-2 text-center'>Allready have an account? <NavLink className='text-base font-bold text-sky-500' to='/signin'>Login</NavLink> </p>
 
         </div>
       </form>
