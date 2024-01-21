@@ -98,6 +98,9 @@ const Navbar = () => {
           </NavLink>
         </ul>
       </div>
+
+
+      <input type="checkbox" value=""  className="toggle theme-controller"/>
       <div className="navbar-end">
           <h2 className="mr-2">{user && <p>{user.email} </p>}</h2>
           {user ? (
