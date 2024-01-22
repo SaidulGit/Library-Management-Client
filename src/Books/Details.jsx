@@ -32,7 +32,7 @@ const Details = () => {
       Swal.fire("Return date", date);
     }
   const borrow = {email,name1,date,category}
-    fetch("https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/borrow",{
+    fetch("https://library-server-seven.vercel.app/borrow",{
       method:"POST",
       headers: {
         "content-type" : "application/json"

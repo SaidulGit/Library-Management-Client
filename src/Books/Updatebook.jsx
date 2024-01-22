@@ -20,7 +20,7 @@ const handleUpdate = (e) =>{
   const data = {
     name,image,author,rating,category
   }
-  fetch(`https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/update/${mainData[0]._id}`,{
+  fetch(`https://library-server-seven.vercel.app/update/${mainData[0]._id}`,{
     method:"PUT",
     headers:{
       "content-type": "application/json"

@@ -17,7 +17,7 @@ const handleDelete = (id) => {
   })
   
   .then((result) => {
-    fetch(`https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/borrowdata/${id}`,{
+    fetch(`https://library-server-seven.vercel.app/borrowdata/${id}`,{
     method:"DELETE"
   })
   .then(res=> res.json())

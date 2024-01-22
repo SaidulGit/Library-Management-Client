@@ -17,7 +17,7 @@ const handleAdd = (e) => {
 const data = {
   name,image,author,description,rating,quantity,category
 }
-fetch("https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/add",{
+fetch("https://library-server-seven.vercel.app/add",{
   method:"POST",
   headers:{
     "content-type": "application/json"
