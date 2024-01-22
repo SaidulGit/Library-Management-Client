@@ -15,6 +15,7 @@ const Details = () => {
   const loader = useLoaderData();
     const email = user.email
     const name1 = loader[0].name
+    const category = loader[0].category
    const {name,author,description,rating,quantity,image} = loader[0] || {}
 
    const handleBorrow = async () => {
@@ -30,7 +31,7 @@ const Details = () => {
     if (date) {
       Swal.fire("Return date", date);
     }
-  const borrow = {email,name1,date}
+  const borrow = {email,name1,date,category}
     fetch("http://localhost:5000/borrow",{
       method:"POST",
       headers: {

@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Sction2 = () => {
+ 
   return (
     <div className='mt-10'>
          <h2 className='text-6xl font-extrabold text-center mb-5'> Status</h2>
