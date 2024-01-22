@@ -6,7 +6,7 @@ const Brand = () => {
     const [Data,setData] = useState([])
 
 
-    fetch("http://localhost:5000/brand")
+    fetch("https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/brand")
     .then(res=> res.json()
     .then(data => setData(data)))
     

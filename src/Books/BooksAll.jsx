@@ -4,7 +4,7 @@ import BookCard from './BookCard'
 
 const BooksAll = () => {
   const [book,setBook] = useState([])
- fetch("http://localhost:5000/allbooks")
+ fetch("https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/allbooks")
  .then(res => res.json())
  .then(data=> setBook(data))
 

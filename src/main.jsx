@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/",
-        loader: () => fetch("http://localhost:5000/brand"),
+        loader: () => fetch("https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/brand"),
         element: <Brand></Brand>,
       },
       {
@@ -42,13 +42,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/borrowbooks",
-        loader: () => fetch("http://localhost:5000/borrowdata"),
+        loader: () => fetch("https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/borrowdata"),
         element: <BorrowBooks></BorrowBooks>,
       },
       {
         path: "/update/:id",
         loader: () =>
-          fetch(`http://localhost:5000/allbooks`),
+          fetch(`https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/allbooks`),
         element: <Privateroute><Updatebook></Updatebook></Privateroute>
       },
       {
@@ -67,13 +67,13 @@ const router = createBrowserRouter([
       {
         path: "/category/:category",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/books/${params.category}`),
+          fetch(`https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/books/${params.category}`),
         element: <CategoryBooks></CategoryBooks>,
       },
       {
         path: "/details/:name",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/book/${params.name}`),
+          fetch(`https://library-server-d2d9qry2a-saidul-islams-projects.vercel.app/book/${params.name}`),
         element: (
           <Privateroute>
             <Details></Details>
