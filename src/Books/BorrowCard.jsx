@@ -38,7 +38,7 @@ const handleDelete = (id) => {
 }
 // console.log(borrow)
   return (
-    <tr>
+    <tr className='hover'>
         <th>{index + 1}</th>
         <td>{card.name1}</td>
         <td>{card.category}</td>
