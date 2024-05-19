@@ -34,9 +34,9 @@ const handleDelete = (id) => {
       });
     }
   });
-  // console.log(borrow)
+
 }
-// console.log(borrow)
+
   return (
     <tr className='hover'>
         <th>{index + 1}</th>
